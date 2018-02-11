@@ -41,24 +41,21 @@ ORG &C000
 				lda #&FF:sta via_ddrb		; set all portb as outputs
  				ldx #&00:stx via_iorb		; X = 0
 			
-				; To do any comprehensive RAM test requires ZP and a stack.
-				; So to begin with, we do a basic RAM test (just write some values to
-				; RAM and check they can be read back OK).
-				; If that fails, we lockup. If it passes, we do a more thorough RAM test.
-			
+				; very simple write-and-then-read-back tests ...
+
 				lda #0
 				sta zp_memtestlocation		; store 0 in RAM
 				lda #&FF					; trash A, just to be certain
 				lda zp_memtestlocation		; now load A back from RAM
 				cmp #0						; is it 0?
-				bne simpleramtestfailed		; no, so print fail message
+				bne simpleramtestfailed		; no
 			
 				lda #&55
 				sta zp_memtestlocation		; store &55 in RAM
 				lda #&FF					; trash A, just to be certain
 				lda zp_memtestlocation		; now load A back from RAM
 				cmp #&55					; is it &55?
-				bne simpleramtestfailed		; no, so print fail message
+				bne simpleramtestfailed		; no
 			
 				; if we get here, then the simple tests passed.
 				; So from this point, we'll assume we have ZP and stack.
