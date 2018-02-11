@@ -1,5 +1,3 @@
-; First attempt at firmware for my homemade 6502 computer.
-;
 ; Part 7 - memory test and LCD screen
 ;
 ; ROM is at C000 - FFFF
