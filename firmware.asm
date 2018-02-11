@@ -1,4 +1,5 @@
-; Part 7 - memory test and LCD screen
+; Firmware / OS for DIY6502 (part 7).
+; (see http://danceswithferrets.org/geekblog/?p=687)
 ;
 ; ROM is at C000 - FFFF
 ; Hardware devices start at 8000:
